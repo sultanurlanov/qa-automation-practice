@@ -13,7 +13,7 @@ public class RegisterTest extends BaseTest {
 
     @Test
     @Description("Регистрация")
-    public void RegisterTest() {
+    public void RegisterTest() throws InterruptedException {
 
         String email = "sultan" + System.currentTimeMillis() + "@test.com";
 
@@ -21,6 +21,7 @@ public class RegisterTest extends BaseTest {
         LoginPage loginPage = homePage.clickSignIn();
         RegisterPage registerPage = loginPage.clickRegister();
         LoginPage loginPageAfterRegister = registerPage.registerForm(email);
+        System.out.println("email: " + email);
         Assert.assertTrue(loginPageAfterRegister.isVisibleLogin());
     }
 }

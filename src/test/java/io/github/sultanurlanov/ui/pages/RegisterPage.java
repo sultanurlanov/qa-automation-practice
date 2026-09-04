@@ -33,7 +33,7 @@ public class RegisterPage {
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-    public LoginPage registerForm(String email) {
+    public LoginPage registerForm(String email) throws InterruptedException {
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(firstnameField));
 
@@ -48,8 +48,10 @@ public class RegisterPage {
         driver.findElement(cityField).sendKeys("Bishkek");
         driver.findElement(stateField).sendKeys("Chyi");
         driver.findElement(phoneField).sendKeys("996550667567");
+        driver.findElement(emailField).clear();
         driver.findElement(emailField).sendKeys(email);
-        driver.findElement(passwordField).sendKeys("Test1234!");
+        driver.findElement(passwordField).clear();
+        driver.findElement(passwordField).sendKeys("Test12321!");
         driver.findElement(registerClick).click();
         return new LoginPage(driver);
 
