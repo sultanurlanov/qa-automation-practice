@@ -1,10 +1,10 @@
 package io.github.sultanurlanov.ui.tests;
 
+import io.github.sultanurlanov.api.helpers.UserHelper;
 import io.github.sultanurlanov.ui.base.BaseTest;
 import io.github.sultanurlanov.ui.pages.AccountPage;
 import io.github.sultanurlanov.ui.pages.HomePage;
 import io.github.sultanurlanov.ui.pages.LoginPage;
-import io.github.sultanurlanov.ui.pages.RegisterPage;
 import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -15,14 +15,11 @@ public class LoginTest extends BaseTest {
     @Description("тест авторизации")
     public void loginTest() throws InterruptedException {
 
-        String email = "test" + System.currentTimeMillis() + "@test.com";
+        String email = UserHelper.createUser();
 
         HomePage homePage = new HomePage(driver);
-
         LoginPage loginPage = homePage.clickSignIn();
-        RegisterPage registerPage = loginPage.clickRegister();
-        LoginPage loginPageAfterRegister = registerPage.registerForm(email);
-        AccountPage accountPage = loginPageAfterRegister.login(email,"Test12321!");
-        Assert.assertTrue(accountPage.ismenuVisible());
+        AccountPage accountPage = loginPage.login(email, UserHelper.PASSWORD);
+        Assert.assertTrue(accountPage.isMenuVisible());
     }
 }

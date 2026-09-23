@@ -9,11 +9,11 @@ public class AccountPage {
 
     By navmenuField = By.cssSelector("[data-test='nav-menu']");
 
-    public AccountPage (WebDriver driver){
+    public AccountPage(WebDriver driver){
         this.driver = driver;
     }
 
-    public boolean ismenuVisible() {
+    public boolean isMenuVisible() {
         return driver.findElement(navmenuField).isDisplayed();
     }
 }
