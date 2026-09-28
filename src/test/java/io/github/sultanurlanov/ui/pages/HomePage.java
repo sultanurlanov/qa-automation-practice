@@ -13,6 +13,7 @@ public class HomePage {
    WebDriverWait wait;
 
    By signInButton = By.cssSelector("[data-test='nav-sign-in']");
+   By productCart = By.cssSelector("[data-test='product-name']");
 
    public HomePage (WebDriver driver) {
       this.driver = driver;
@@ -20,8 +21,13 @@ public class HomePage {
 
    }
 
-   public LoginPage  clickSignIn () {
+   public LoginPage  clickSignIn() {
       wait.until(ExpectedConditions.elementToBeClickable(signInButton)).click();
       return new LoginPage(driver);
+   }
+
+   public ProductPage clickFirstProduct() {
+      wait.until(ExpectedConditions.elementToBeClickable(productCart)).click();
+      return new ProductPage(driver);
    }
 }

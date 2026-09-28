@@ -40,6 +40,6 @@ public class UserApiTest {
         Assert.assertNull(password);
 
 
-        System.out.println("UserID: " + userId);
+        System.out.println("UserID: " + userId + "    " + email );
     }
 }
