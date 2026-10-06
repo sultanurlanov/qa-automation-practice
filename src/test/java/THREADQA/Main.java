@@ -13,19 +13,23 @@ public class Main {
 //        sayHello();
 //        sayMethod(name);
 
-        Car car = new Car();
+//        Car car = new Car("Audi",200);
+//        car.beeepBeep();
+//        car.goToRoad();
+//        System.out.println(car.getModel());
+//
+//        Car car1 = new Car("Mazda",5);
+//        car1.setModel("BMW");
+//        car1.setFuel(10);
+//        car1.goToRoad();
+//        System.out.println(car1.getModel());
+
+
+        Car car = new Car("Lexus",50);
         car.beeepBeep();
-        car.setModel("Lexus");
-        car.setFuel(100);
         car.goToRoad();
-        System.out.println(car.getModel());
-
-        Car car1 = new Car();
-        car1.setModel("BMW");
-        car1.setFuel(10);
-        car1.goToRoad();
-        System.out.println(car1.getModel());
-
+        car.goToRoad();
+        car.goToRoad();
     }
 
 
