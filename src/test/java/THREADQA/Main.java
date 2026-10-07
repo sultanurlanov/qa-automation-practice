@@ -25,11 +25,19 @@ public class Main {
 //        System.out.println(car1.getModel());
 
 
-        Car car = new Car("Lexus",50);
-        car.beeepBeep();
-        car.goToRoad();
-        car.goToRoad();
-        car.goToRoad();
+      Car nissan = new Car("nissan",45);
+      Car lexus1 = new Car("Lexus",80);
+      Car lexus2 = new Car("Lexus",80);
+
+      boolean isSame1 = lexus1.equals(lexus2);
+      boolean isSame2 = lexus1.equals(nissan);
+
+        System.out.println("машины похожи: " + isSame1);
+        System.out.println("машины похожи: " + isSame2);
+        System.out.println(lexus1 +  " " + lexus2);
+        System.out.println(lexus1 +  " " + nissan);
+
+
     }
 
 

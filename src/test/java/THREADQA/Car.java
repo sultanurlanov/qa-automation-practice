@@ -1,5 +1,14 @@
 package THREADQA;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.Objects;
+
+//@Data
+//@AllArgsConstructor
+//@NoArgsConstructor
 public class Car {
 
     private String model;
@@ -21,7 +30,6 @@ public class Car {
             fuel = fuel - 15;
         } else{
             System.out.println("недостаточно бензина");
-            addFuel();
             System.out.println("можно ехать " + " " + fuel);
         }
     }
@@ -48,5 +56,27 @@ public class Car {
 
     public void setModel(String model) {
         this.model = model;
+    }
+
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return Objects.equals(model, car.model) && Objects.equals(fuel, car.fuel);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(model, fuel);
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "model='" + model + '\'' +
+                ", fuel=" + fuel +
+                '}';
     }
 }
