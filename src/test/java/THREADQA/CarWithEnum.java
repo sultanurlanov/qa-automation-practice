@@ -9,6 +9,16 @@ public class CarWithEnum {
         this.door = door;
     }
 
+    @Override
+    public String toString() {
+        return "CarWithEnum{" +
+                "name='" + name + '\'' +
+                ", type=" + type +
+                ", color='" + color + '\'' +
+                ", door=" + door +
+                '}';
+    }
+
     public String getName() {
         return name;
     }
