@@ -36,14 +36,37 @@ public class ListTest {
             add(new CarWithEnum("Lexus", TypeCar.CROSSOVER, "white",4));
             add(new CarWithEnum("Tayota", TypeCar.SEDAN, "silver",4));
             add(new CarWithEnum("Zikr", TypeCar.HATCHBACK, "black",4));
-            add(new CarWithEnum("Honda", TypeCar.CROSSOVER, "black",4));
+            add(new CarWithEnum("Honda", TypeCar.CROSSOVER, "black",2));
         }};
 
         List<CarWithEnum> carWithEnums  = cars.stream()
                 .filter(temp -> temp.getType()
                         .equals(TypeCar.CROSSOVER))
-                .collect(Collectors.toUnmodifiableList());
+                .collect(Collectors.toList());
         System.out.println(carWithEnums);
+
+        List<CarWithEnum> carBlackColor = cars.stream()
+                .filter(temp -> temp.getColor()
+                        .equals("black"))
+                .collect(Collectors.toList());
+        System.out.println(carBlackColor);
+
+        List<CarWithEnum> carCrossover = cars.stream()
+                .filter(temp -> temp.getType().equals(TypeCar.CROSSOVER) && temp.getColor().equals("black"))
+                .collect(Collectors.toList());;
+        System.out.println(carCrossover);
+
+        List<String> names = cars.stream()
+                .filter(temp -> temp.getDoor() == 4)
+                .map(CarWithEnum::getName)
+                .toList();
+        System.out.println(names);
+
+        List<String> carsUperCase = cars.stream()
+                .filter(temp -> temp.getType().equals(TypeCar.CROSSOVER))
+                .map(temp -> temp.getName().toUpperCase())
+                        .collect(Collectors.toList());
+        System.out.println(carsUperCase);
 
         List<CarWithEnum> crossover = new ArrayList<>();
         for (int i = 0; i < cars.size(); i++) {
