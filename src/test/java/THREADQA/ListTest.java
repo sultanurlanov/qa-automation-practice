@@ -1,9 +1,7 @@
 package THREADQA;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 public class ListTest {
@@ -38,6 +36,22 @@ public class ListTest {
             add(new CarWithEnum("Zikr", TypeCar.HATCHBACK, "black",4));
             add(new CarWithEnum("Honda", TypeCar.CROSSOVER, "black",2));
         }};
+
+       Optional<CarWithEnum> firstCar = cars.stream()
+               .filter(temp -> temp.getColor().equals("black"))
+               .findFirst();
+               firstCar.ifPresent(carWithEnum -> System.out.println(carWithEnum.getName()));
+
+
+
+        CarWithEnum lastCar = cars.get(cars.size() - 1);
+        System.out.println(lastCar);
+
+        CarWithEnum lastCarStream = cars.stream().reduce((temp, next) -> next).get();
+        System.out.println(lastCarStream);
+
+        cars.stream().filter(x -> x.getName().equals("Audi"))
+                .findFirst().orElseThrow(() -> new IllegalStateException("not found"));
 
         List<CarWithEnum> carWithEnums  = cars.stream()
                 .filter(temp -> temp.getType()
@@ -78,6 +92,7 @@ public class ListTest {
         System.out.println(crossover);
 
     }
+
 
 
 
