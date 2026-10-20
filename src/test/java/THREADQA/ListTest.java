@@ -33,9 +33,37 @@ public class ListTest {
         List<CarWithEnum> cars = new ArrayList<>(){{
             add(new CarWithEnum("Lexus", TypeCar.CROSSOVER, "white",4));
             add(new CarWithEnum("Tayota", TypeCar.SEDAN, "silver",4));
-            add(new CarWithEnum("Zikr", TypeCar.HATCHBACK, "black",4));
+            add(new CarWithEnum("Nissan", TypeCar.HATCHBACK, "black",4));
             add(new CarWithEnum("Honda", TypeCar.CROSSOVER, "black",2));
         }};
+
+        Optional<CarWithEnum> carsFound1 = cars.stream()
+                        .filter(temp -> temp.getType().equals(TypeCar.CROSSOVER))
+                .reduce((temp, next) -> next);
+        String resCar = carsFound1.map(temp -> temp.getName().toUpperCase()).orElse("НЕТ КРОССОВЕРОВ");
+        System.out.println(resCar);
+
+        Optional<CarWithEnum> zikrCar = cars.stream()
+                .filter(temp -> temp.getName().equals("Zikr"))
+                .findAny();
+        CarWithEnum carsFound = zikrCar.orElseThrow(() -> new RuntimeException("Машины Zikr нету"));
+        System.out.println(carsFound);
+
+        Optional<CarWithEnum> firstSedan = cars.stream()
+                .filter(temp -> temp.getType().equals(TypeCar.SEDAN))
+                .findAny();
+               Optional<String> color =  firstSedan.map(temp -> temp.getColor());
+        String result1 = color.orElse("Цвет не известен");
+        System.out.println(result1);
+
+
+
+        Optional<CarWithEnum> ferrariCar = cars.stream()
+                .filter(temp -> temp.getName().equals("Ferrari"))
+                .findAny();
+        CarWithEnum result = ferrariCar.orElse(new CarWithEnum("Машина не найдена", null, null, 0));
+        System.out.println(result);
+
 
        Optional<CarWithEnum> firstCar = cars.stream()
                .filter(temp -> temp.getColor().equals("black"))
