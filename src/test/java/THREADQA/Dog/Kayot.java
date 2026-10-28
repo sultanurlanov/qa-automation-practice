@@ -10,7 +10,6 @@ public class Kayot extends Dog{
     }
 
     public void randomAction(){
-        Random random = new Random();
         int randomNumber = random.nextInt(3);
         switch (randomNumber){
             case 0:
@@ -26,10 +25,10 @@ public class Kayot extends Dog{
     }
 
     public void sleep() {
-
+        System.out.println("кайот спит");
     }
 
     public void swim() {
-
+        System.out.println("кайот плавает");
     }
 }

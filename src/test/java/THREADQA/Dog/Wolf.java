@@ -10,7 +10,6 @@ public class Wolf extends Dog{
     }
 
     public void randomAction() {
-        Random random = new Random();
         int randomNumber = random.nextInt(3);
         switch (randomNumber){
             case 0:
@@ -26,10 +25,10 @@ public class Wolf extends Dog{
     }
 
     public void eat() {
-
+        System.out.println("волк ест");
     }
 
     public void multiply() {
-
+        System.out.println("волк размножается");
     }
 }

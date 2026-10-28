@@ -12,28 +12,35 @@ public class DogTask {
             dogs.add(getRandomDog());
         }
 
-        for (int i = 0; i < 365; i++ ){
+        int startCount = dogs.size();
+        int countDoc = startCount;
+
+        for (int i = 1; i < 365; i++ ){
             int randomIndex = random.nextInt(dogs.size());
             Dog tempDog = dogs.get(randomIndex);
             tempDog.randomAction();
 
-            if (i % 30 == 0){
+
+            if (i % 30 == 11){
                 dogs.add(getRandomDog());
                 System.out.println("!!!!!! Новая собака !!!!!!!!");
             }
         }
 
-        System.out.println(dogs.size());
+        System.out.println("Было собак: " + countDoc);
+        System.out.println("Стало собак: " + dogs.size());
 
         Map<String, Integer> animals = new HashMap<>();
         for (Dog dog : dogs){
             String className = dog.getClass().getSimpleName();
-            if (animals.containsKey(className)){
-                int conutName = animals.get(className);
-                animals.put(className,conutName +1);
-            } else {
-                animals.put(className,1);
-            }
+            animals.put(className, animals.getOrDefault(className,0)+1);
+
+//            if (animals.containsKey(className)){
+//                int conutName = animals.get(className);
+//                animals.put(className,conutName +1);
+//            } else {
+//                animals.put(className,1);
+//            }
         }
 
         for (String className : animals.keySet()){

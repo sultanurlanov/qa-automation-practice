@@ -10,7 +10,6 @@ public class Shakal extends Dog{
     }
 
     public void randomAction(){
-        Random random = new Random();
         int randomNumber = random.nextInt(3);
         switch (randomNumber){
             case 0:
@@ -26,10 +25,10 @@ public class Shakal extends Dog{
     }
 
     public void hunt() {
-
+        System.out.println("шакал охотится");
     }
 
     public void gavGav() {
-
+        System.out.println("шакал гавкает");
     }
 }
