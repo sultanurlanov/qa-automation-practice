@@ -9,4 +9,6 @@ public abstract class Dog {
     abstract void randomAction();
 
     protected Random random = new Random();
+
+
 }

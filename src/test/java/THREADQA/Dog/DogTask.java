@@ -6,6 +6,8 @@ public class DogTask {
 
     private static Random random = new Random();
 
+
+
     static void main(String[] args) {
         List<Dog> dogs = new ArrayList<>();
         for (int i = 0; i < 30; i++) {
