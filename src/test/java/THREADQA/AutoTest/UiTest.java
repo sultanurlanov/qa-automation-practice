@@ -8,7 +8,19 @@ public class UiTest extends AutoTests{
 
     @Override
     void randomResult() {
+        int randomNumber = random.nextInt(3);
 
+        switch (randomNumber) {
+            case 0:
+                passed();
+                break;
+            case 1:
+                failed();
+                break;
+            case 2:
+                skipped();
+                break;
+        }
     }
 
     public void passed() {
@@ -19,7 +31,7 @@ public class UiTest extends AutoTests{
         System.out.println("UI test: Failed");
     }
 
-    public void skiped() {
-        System.out.println("UI test: Skiped");
+    public void skipped() {
+        System.out.println("UI test: Skipped");
     }
 }

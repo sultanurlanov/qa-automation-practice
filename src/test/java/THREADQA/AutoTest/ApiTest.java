@@ -1,5 +1,7 @@
 package THREADQA.AutoTest;
 
+import java.util.Random;
+
 public class ApiTest extends AutoTests{
 
     @Override
@@ -9,7 +11,20 @@ public class ApiTest extends AutoTests{
 
     @Override
     void randomResult() {
+        int randomNumber = random.nextInt(3);
+        switch (randomNumber) {
+            case 0:
+                passed();
+                break;
+            case 1:
+                failed();
+                break;
+            case 2:
+                skipped();
+                break;
+        }
     }
+
 
     public void passed() {
         System.out.println("API test: Passed");
@@ -19,7 +34,7 @@ public class ApiTest extends AutoTests{
         System.out.println("API test: Failed");
     }
 
-    public void skiped() {
+    public void skipped() {
         System.out.println("API test: Skiped");
     }
 }

@@ -8,6 +8,19 @@ public class DbTest extends AutoTests{
 
     @Override
     void randomResult() {
+        int randomNumber = random.nextInt(3);
+
+        switch (randomNumber) {
+            case 0:
+                passed();
+                break;
+            case 1:
+                failed();
+                break;
+            case 2:
+                skiped();
+                break;
+        }
 
     }
 
