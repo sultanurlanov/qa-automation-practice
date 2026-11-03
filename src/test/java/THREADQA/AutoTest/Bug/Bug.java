@@ -2,46 +2,15 @@ package THREADQA.AutoTest.Bug;
 
 public class Bug {
 
-    private int id;
     private String title;
     private String severity;
+    private int priority;
 
-    public Bug(int id, String title, String severity) {
-        this.id = id;
-        this.title = title;
-        this.severity = severity;
-    }
-
-    public Bug() {
-
-    }
-
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setSeverity(String severity) {
-        this.severity = severity;
-    }
-
-    @Override
-    public String toString() {
-        return "Bug{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", severity='" + severity + '\'' +
-                '}';
-    }
-
-    public int getId() {
-        return id;
-    }
-
+   public Bug(String title, String severity, int priority) {
+       this.title = title;
+       this.severity = severity;
+       this.priority = priority;
+   }
     public String getTitle() {
         return title;
     }
@@ -50,5 +19,7 @@ public class Bug {
         return severity;
     }
 
-
+    public int getPriority() {
+        return priority;
+    }
 }

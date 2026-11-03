@@ -7,8 +7,8 @@ public class TestCase {
     private String status;
 
     public TestCase(int id, String name, String status) {
-        id = id;
-        name = name;
+        this.id = id;
+        this.name = name;
         this.status = status;
     }
 
@@ -23,7 +23,4 @@ public class TestCase {
     public String getStatus() {
         return status;
     }
-
-
-
 }
