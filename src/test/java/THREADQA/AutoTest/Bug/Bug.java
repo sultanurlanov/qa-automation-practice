@@ -6,11 +6,12 @@ public class Bug {
     private String severity;
     private int priority;
 
-   public Bug(String title, String severity, int priority) {
-       this.title = title;
-       this.severity = severity;
-       this.priority = priority;
-   }
+    public Bug(String title, String severity, int priority) {
+        this.title = title;
+        this.severity = severity;
+        this.priority = priority;
+    }
+
     public String getTitle() {
         return title;
     }
