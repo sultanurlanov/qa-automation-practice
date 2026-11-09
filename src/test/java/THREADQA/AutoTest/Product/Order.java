@@ -3,6 +3,7 @@ package THREADQA.AutoTest.Product;
 
 public class Order {
 
+
     private int id;
     private String customer;
     private int total;
