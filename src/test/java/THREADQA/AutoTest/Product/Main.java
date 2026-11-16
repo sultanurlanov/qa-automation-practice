@@ -3,6 +3,7 @@ package THREADQA.AutoTest.Product;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Main {
 
     public static void main(String[] args) {
@@ -36,7 +37,6 @@ public class Main {
 
 
         System.out.println(order1.getId() + " - " + order1.getCustomer() + " - " + order1.getStatus());
-        System.out.println(STR."\{order2.getId()} - \{order2.getCustomer()} - \{order2.getStatus()}");
         System.out.println(order3.getId() + " - " + order3.getCustomer() + " - " + order3.getStatus());
     }
 }

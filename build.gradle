@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+}
+
+group = 'io.github.sultanurlanov'
+version = '1.0-SNAPSHOT'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    agent
+}
+
+dependencies {
+    testImplementation 'io.rest-assured:rest-assured:5.4.0'
+    testImplementation 'io.rest-assured:json-schema-validator:5.4.0'
+    testImplementation 'org.testng:testng:7.9.0'
+    testImplementation 'io.qameta.allure:allure-testng:2.25.0'
+    testImplementation 'io.qameta.allure:allure-rest-assured:2.25.0'
+    testImplementation 'org.seleniumhq.selenium:selenium-java:4.27.0'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.46'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.46'
+
+    agent 'org.aspectj:aspectjweaver:1.9.21'
+}
+
+test {
+    useTestNG()
+    jvmArgs "-javaagent:${configurations.agent.singleFile}"
+    systemProperty 'allure.results.directory', "${projectDir}/allure-results"
+}
