@@ -1,6 +1,7 @@
 package THREADQA.AutoTest.Bug;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Report {
@@ -32,11 +33,16 @@ public class Report {
 
         int failedCount = contFailed(tests);
         int statusCount = countByStatus(tests,"400");
+//
+//        System.out.println("Упало тестов: " + failedCount);
+//        System.out.println("400: " + statusCount);
 
-        System.out.println("Упало тестов: " + failedCount);
-        System.out.println("400: " + statusCount);
+    int[] array = new int[100];
+    for(int i = 0; i <= 100; i++){
+        array[i] = i;
+    }
 
-
+        System.out.println(Arrays.toString(array));
 
 
 
